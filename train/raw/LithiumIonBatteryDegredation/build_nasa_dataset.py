@@ -79,7 +79,9 @@ for bid in meta["battery_id"].unique():
             "disI": disI,
             "disV": disV,
             "disT": disT,
-            "BCt": drow["Capacity"]  # cycle capacity from NASA metadata
+            "BCt": drow["Capacity"],  # cycle capacity from NASA metadata
+            "dis_file": drow["filename"],
+            "ch_file": chfile
         })
 
         cycle_number += 1
@@ -109,7 +111,8 @@ df = df[[
     "battery_id", "cycle",
     "chI", "chV", "chT",
     "disI", "disV", "disT",
-    "BCt", "SOH", "RUL"
+    "BCt", "SOH", "RUL",
+    "dis_file", "ch_file"
 ]]
 
 out_file = "NASA_Battery_dataset_all.csv"
